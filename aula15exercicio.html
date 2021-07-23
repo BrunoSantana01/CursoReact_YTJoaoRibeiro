@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Básico</title>
+</head>
+
+<body>
+    <h1>Exercicio</h1>
+    <hr>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+    class App extends React.Component{
+        constructor(props){
+            super(props)
+            this.state={
+                nome1 : "Joaquim" ,
+                nome2 : "Maria" ,
+                nome3 : "Carlos" 
+            }
+        }
+
+        render(){
+            return(
+                <div>
+                <p>Nome :{this.state.nome1}</p>
+                <button>Alterar</button>
+                <p>Nome:{this.state.nome2}</p>
+                <button>Alterar</button>
+                <p>Nome:{this.state.nome3}</p>
+                <button>Alterar</button>
+                </div>
+            )
+        }
+    }
+
+        ReactDOM.render(
+            <App/>, document.getElementById('root'))
+    </script>
+</body>
+
+</html>

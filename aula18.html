@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Básico</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        //parent
+        class App extends React.Component {
+
+            metodo() {
+                console.log('Ola Pai.');
+            }
+
+            metodo2(){
+                console.log('Olá Mundo!')
+            }
+
+            render() {
+                return (
+                    <div>
+                        <p>Texto Componente Pai</p>
+                        <CompA metodo={this.metodo} met={this.metodo2} />{/*o met é apenas uma 'variavel/prop' para guardar o metodo*/}
+                    </div>
+                )
+            }
+        }
+        //child
+
+        class CompA extends React.Component {
+            render() {
+                return (
+                    <p>{/*Nome: {this.props.nome}*/}
+                        <button onClick = {this.props.metodo}>Clicar</button>
+                        <button onClick = {this.props.met}>Clicar</button>
+                    </p >
+                )
+            }
+        } ReactDOM.render(<App />, document.getElementById('root'))
+    </script>
+</body>
+
+</html>
